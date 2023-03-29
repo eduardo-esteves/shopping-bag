@@ -7,13 +7,10 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 export default {
   created() {
-    axios.get('https://fakestoreapi.com/products')
-      .then(resp => {
-        console.log(resp)
-      })
+    this.$store.dispatch('loadProducts')
   }
 }
 
