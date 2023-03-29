@@ -27,16 +27,25 @@
 <script>
 
 export default {
+
   name: 'Home',
+
   data() {
     return {
-      
+
     }
   },
 
   methods: {
-   
+
+  },
+
+  computed: {
+    products() {
+      return this.$store.state.products
+    }
   }
+
 }
 </script>
 
@@ -52,7 +61,7 @@ export default {
 
       .product {
         flex: 0 0 30%;
-        box-sizing: border-box;  
+        box-sizing: border-box;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         padding: 16px;
         margin: 8px;
@@ -69,7 +78,7 @@ export default {
         &.inBag {
           border: 1px solid #007bff;
         }
-        
+
         .product-image {
           margin: 20px auto;
           width: 160px;
