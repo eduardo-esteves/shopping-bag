@@ -4,13 +4,17 @@ import axios from 'axios'
 export default createStore({
 
   state: {
-    products: []
+    products: [],
+    productsInBag: [],
   },
 
   mutations: {
     loadProducts(state, products) {
       console.log(products)
       state.products = products
+    },
+    addToBag(state, product) {
+      state.productsInBag.push(product)
     }
   },
 
@@ -20,6 +24,9 @@ export default createStore({
       .then(resp => {
         commit('loadProducts', resp.data)
       })
+    },
+    addToBag({ commit }, product) {
+      commit('addToBag', product)
     }
   },
 

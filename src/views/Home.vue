@@ -9,7 +9,7 @@
           <div class="product-image" :style="{backgroundImage: `url(${product.image})`}"></div>
           <h4>{{ product.title }}</h4>
           <p class="price">R$ {{ product.price.toFixed(2) }}</p>
-          <button>Adicionar ao carrinho</button>
+          <button @click="addToBag(product)">Adicionar ao carrinho</button>
       </div>
 
     </div>
