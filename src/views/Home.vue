@@ -4,6 +4,7 @@
 
       <div
         class="product"
+        :class="{ inBag : isInBag(product) }"
         v-for="(product, key) of this.products"
         :key="key">
           <div class="product-image" :style="{backgroundImage: `url(${product.image})`}"></div>
@@ -15,7 +16,7 @@
             Adicionar ao carrinho
           </button>
           <button
-            @click="addToBag(product)"
+            @click="this.$store.dispatch('removeFromBag', product.id)"
             v-else
             class="remove">
             Remover do carrinho
