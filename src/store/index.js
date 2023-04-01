@@ -15,10 +15,15 @@ export default createStore({
     },
     addToBag(state, product) {
       state.productsInBag.push(product)
+      localStorage.setItem('productsInBag', JSON.stringify(state.productsInBag))
     },
     removeFromBag(state, productId) {
       state.productsInBag = state.productsInBag.filter(item => item.id != productId)
-    }
+      localStorage.setItem('productsInBag', JSON.stringify(state.productsInBag))
+    },
+    loadBag(state, products) {
+      state.productsInBag = products
+    },
   },
 
   actions: {
@@ -27,6 +32,11 @@ export default createStore({
       .then(resp => {
         commit('loadProducts', resp.data)
       })
+    },
+    loadBag({ commit }) {
+      if (localStorage.getItem('productsInBag')) {
+        commit('loadBag', JSON.parse(localStorage.getItem('productsInBag')))
+      }
     },
     addToBag({ commit }, product) {
       commit('addToBag', product)
