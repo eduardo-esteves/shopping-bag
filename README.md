@@ -15,6 +15,7 @@ Os produtos listados vem de uma api https://fakestoreapi.com e é muito fácil d
 
 ### Demo:
 
+![shopping-bag](https://user-images.githubusercontent.com/93061383/230468663-52c2c401-f8fe-49cc-84d1-6211320c0ad4.gif)
 
 
 ## ⚙ Funcionalidades
